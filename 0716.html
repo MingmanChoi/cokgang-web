@@ -1,0 +1,167 @@
+<!-- updates: 모달에 유튜브 d-day인트로 넣음 -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-172765704-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-172765704-1');
+</script>
+
+
+<!-- Jquery, Bootstrap -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+
+
+<!-- #### Intro #### -->
+
+<div class="video_bottom" style=" min-width: 800px; text-align: center;">
+    <img width="100%" src="/uploadDir/files/board/editor/20200708175558.png"><br style="clear:both;">
+</div>
+
+<!-- #### Youtube Video 1 #### -->
+<div class="youtube_video" style="padding-bottom:80px; text-align: center; background-image: url('http://cokgang.com/uploadDir/files/board/editor/20200620053707.png');">
+    <br></div>
+<div class="youtube_video" style="padding-bottom:80px; text-align: center; background-image: url('http://cokgang.com/uploadDir/files/board/editor/20200620053707.png');">
+    <iframe width="1024" height="600" src="https://www.youtube.com/embed/N7Tekyouq3c" 0"="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</div>
+
+
+<!-- #### Youtube Video 2 #### -->
+<div class="youtube_video" style="padding-bottom:40px; text-align: center; background-image: url('http://cokgang.com/uploadDir/files/board/editor/20200620053707.png');">
+
+    <iframe width="1024" height="600" src="https://www.youtube.com/embed/7Q-2TzhK_40" 0"="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+</div>
+
+
+<!-- #### Main Contents #### -->
+
+<div class="video_bottom" style=" min-width: 800px; text-align: center;">
+    <img width="100%" src="/uploadDir/files/board/editor/20200708174236.png">
+</div>
+
+
+<!-- #### Buttons #### -->
+<div id="btn_area">
+    <div class="sign_up_button btns-template">
+        <a href="http://cokgang.com/smart/Login/join">
+            <img width="100%" class="btnImages" style="margin-right: -20%;" src="http://cokgang.com/uploadDir/files/board/editor/20200623091143.png" alt="btnImages">
+        </a>
+    </div>
+
+    <div class="take_class_button btns-template">
+        <a href="https://forms.gle/yxHpeoMf9EMwajJbA" target="_blank">
+            <img width="100%" class="btnImages" style="margin-left: -20%;" src="http://cokgang.com/uploadDir/files/board/editor/20200623091506.png" alt="btnImages">
+        </a>
+    </div>
+</div>
+<div>
+    <div class="counsel_button btns-template" style="margin-top:20%;">
+        <a href="http://pf.kakao.com/_xlbuyxb/chat" target="_blank">
+            <img width="100%" style="width: 30%;border-radius:5px;" src="http://cokgang.com/uploadDir/files/board/editor/20200710080031.png" alt="btnImages">
+        </a>
+    </div>
+</div>
+
+
+<!-- ################## HTML END #################### -->
+
+
+<!-- #### CSS #### -->
+
+<style>
+    //body{margin:0 0%;}
+    #header .logTxt {
+        right: 90px !important;
+    }
+
+    #btn_area {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 10% 0;
+        min-width: 800px;
+    }
+
+    .btns-template {
+        text-align: center;
+    }
+
+    .btnImages {
+        width: 60% !important;
+        transition: .3s;
+    }
+
+
+
+
+    #header .logo {
+        top: 10px !important;
+    }
+
+    /* 추가 효과 */
+    .btnImages:hover {
+        transform: scale(1.03);
+    }
+
+    /* 모달관련 */
+    #close{
+        color: white;
+        position: absolute;
+        right: 3%;
+        top: 0%;
+        z-index: 5;
+    }
+    #close:hover{
+        cursor: pointer;
+        color: gray;
+}
+ .nav >li>a{font-size : 1.2vw !important; line-height:33px;} 
+.iframebox {
+position: relative;
+width: 70%;
+padding-bottom: 39.25%;
+margin-left: 15%;
+margin-top: 5%;
+}
+
+.iframebox iframe {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+}​
+</style>
+
+
+
+<!-- 모달로 팝업 대체, modal.('show') 함수가 안먹혀서 자동클릭으로 모달 띄우게 함 -->
+<!-- Modal -->
+<a id="modal_start" style="display:none;" class="btn btn-primary m-top-20" data-toggle="modal" data-target="#popup">클릭될거</a>
+<div class="modal fade" id="popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" style="width:100% !important;height:100% !important;">
+                    <div id="close"><i class="fas fa-times-circle" style="font-size: 3vw;"></i></div>
+                    <div class="iframebox">
+                        <iframe id="d-day-video" width="80%" height="60%" src="https://www.youtube.com/embed/EzU4_hmkbvU?rel=0;amp;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                     </div>
+                </div>
+
+
+<script>
+    window.onload = function () {
+        $('#modal_start')[0].click();
+        document.querySelector('#close').addEventListener('click', function(){
+        $('#modal_start')[0].click();
+        $('#d-day-video').attr('src', '');
+        });
+        document.querySelector('.modal-backdrop.fade.in').addEventListener('click', function(){
+        $('#d-day-video').attr('src', '');
+        });
+
+    }
+</script></div>
