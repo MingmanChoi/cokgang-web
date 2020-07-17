@@ -76,6 +76,8 @@ var _link = document.createElement('link');
     </div>
 </div>
 
+<i id="toTop" class="fas fa-chevron-circle-up fa-2x"></i>
+
 
 <!-- ################## HTML END #################### -->
 
@@ -105,8 +107,22 @@ var _link = document.createElement('link');
     }
 
 
-
-
+    @keyframes sizeToggle {
+         30% {transform: scale(1.06);}
+         60% {transform: scale(1.0);}
+    }
+    #toTop{
+         position: fixed;
+         right: 2%;
+         bottom: 3%;
+         cursor:pointer;
+         display: none;
+         animation: sizeToggle 1s ease-in-out infinite 0s;
+    }
+    #toTop:hover{
+         color: gray;
+         transform: scale(1.1);
+    }
     #header .logo {
         top: 10px !important;
     }
@@ -177,6 +193,20 @@ margin-top: 5%;
 
 <!-- #### JavaScript #### -->
 
+<script>
+    /* To the Top Button & Scroll */
+    $( window ).scroll( function() {
+    	if ( $( this ).scrollTop() > 200 ) {
+             $( '#toTop' ).fadeIn();
+    	} else {
+		$( '#toTop' ).fadeOut();
+	}
+} );
+    $( '#toTop' ).click( function() {
+	$( 'html, body' ).animate( { scrollTop : 0 }, 400 );
+	return false;
+    } );
+</script>
 <script>
     /* Cookie Functions */
     function setCookie(cookie_name, value, days) {
