@@ -51,20 +51,90 @@
                 <td>마돌에서 오목이 먹어봤다</td>
             </tr>
         </table>
-        <button id="tests">here</button>
-        <iframe id="d-day-video" width="80%" height="60%"
-            src="https://www.youtube.com/embed/EzU4_hmkbvU?rel=0;amp;autoplay=1" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+        <button id="tests">바꾸기</button>
+        <img id="testimg" src="beforeclick.jpg" alt="">
     </div>
 </body>
 <script>
-    $(document).ready(function () {
-        $(function () {
-            $('#tests').click(function () {
-                $('iframe').attr('src', '');
-            });
+    function setCookie(cookie_name, value, days) {
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + days);
+        // 설정 일수만큼 현재시간에 만료값으로 지정
+
+        var cookie_value = escape(value) + ((days == null) ? '' : ';    expires=' + exdate.toUTCString());
+        document.cookie = cookie_name + '=' + cookie_value;
+        }
+    function getCookie(cookie_name) {
+        var x, y;
+        var val = document.cookie.split(';');
+        
+        for (var i = 0; i < val.length; i++) {
+            x = val[i].substr(0, val[i].indexOf('='));
+            y = val[i].substr(val[i].indexOf('=') + 1);
+            x = x.replace(/^\s+|\s+$/g, ''); // 앞과 뒤의 공백 제거하기
+            if (x == cookie_name) {
+            return unescape(y); // unescape로 디코딩 후 값 리턴
+            }
+        }
+        }
+        //setCookie('popup','oneday',1);
+    document.querySelector('#tests').onclick = function(){
+        setCookie('test2','oneday',1);
+        alert('cookie set!');
+    }
+    var a = getCookie('notexist');
+    var b = getCookie('test2');
+    console.log(`a: ${a}\nb: ${b}`);
+    if(b){
+        alert('?');
+        document.querySelector('#testimg').src = 'afterclick.gif';
+    }
+</script>
+<script>
+    /* Cookie Functions */
+    function setCookie(cookie_name, value, days) {
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + days);
+        // 설정 일수만큼 현재시간에 만료값으로 지정
+
+        var cookie_value = escape(value) + ((days == null) ? '' : ';    expires=' + exdate.toUTCString());
+        document.cookie = cookie_name + '=' + cookie_value;
+        }
+    function getCookie(cookie_name) {
+        var x, y;
+        var val = document.cookie.split(';');
+        
+        for (var i = 0; i < val.length; i++) {
+            x = val[i].substr(0, val[i].indexOf('='));
+            y = val[i].substr(val[i].indexOf('=') + 1);
+            x = x.replace(/^\s+|\s+$/g, ''); // 앞과 뒤의 공백 제거하기
+            if (x == cookie_name) {
+            return unescape(y); // unescape로 디코딩 후 값 리턴
+            }
+        }
+        }
+    /* After Loaded */
+    window.onload = function () {
+        var cookieExist = getCookie('modal');
+        // modal starts when cookie does not exist
+        if(!cookieExist) $('#modal_start')[0].click();
+        if(cookieExist) $('#d-day-video').attr('src', '');
+
+        // set cookie when clicked
+        document.querySelector('#noModalForToday').addEventListener('click',function(){
+            setCookie('modal','set',1);
+            $('#modal_start')[0].click();
+            $('#d-day-video').attr('src', '');
         });
-    });
+        document.querySelector('#close').addEventListener('click', function(){
+            $('#modal_start')[0].click();
+            $('#d-day-video').attr('src', '');
+        });
+            document.querySelector('.modal-backdrop.fade.in').addEventListener('click', function(){
+            $('#d-day-video').attr('src', '');
+        });
+
+    }
 </script>
 
 </html>
